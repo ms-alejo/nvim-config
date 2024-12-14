@@ -47,9 +47,11 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 
 -- move visually select lines up or down
 vim.keymap.set("n", "K", ":m .-2<CR>==", { noremap = true })
-vim.keymap.set("v", "K", ":m <-2<CR>gv=gv", { noremap = true })
 vim.keymap.set("n", "J", ":m .+1<CR>==", { noremap = true })
+vim.keymap.set("v", "K", ":m <-2<CR>gv=gv", { noremap = true })
 vim.keymap.set("v", "J", ":m >+1<CR>gv=gv", { noremap = true })
+vim.keymap.set("x", "K", ":m-2<CR>gv=gv", { noremap = true })
+vim.keymap.set("x", "J", ":m'>+<CR>gv=gv", { noremap = true })
 
 -- window navigation keymaps
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
