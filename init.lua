@@ -32,7 +32,10 @@ vim.opt.scrolloff = 10
 vim.opt.shell = "pwsh"
 vim.opt.shellcmdflag = "-NoLogo"
 
--- Keymaps
+-- set conceal level to 1 for obsidian.nvim
+vim.opt.conceallevel = 1
+
+-- keymaps
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
 vim.keymap.set("i", "kj", "<Esc>", { noremap = true, silent = true })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
