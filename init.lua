@@ -31,6 +31,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.shell = "pwsh"
 vim.opt.shellcmdflag = "-NoLogo"
+vim.opt.termguicolors = true
 
 -- set conceal level to 1 for obsidian.nvim
 vim.opt.conceallevel = 1
