@@ -43,7 +43,6 @@ vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- move visually select lines up or down
 vim.keymap.set("n", "K", ":m .-2<CR>==", { noremap = true })
@@ -58,6 +57,15 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left wind
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+-- neovim terminal binds
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("n", "<leader>st", function()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd "J"
+    vim.api.nvim_win_set_height(0, 15)
+end)
 
 -- AutoCommands
 vim.api.nvim_create_autocmd("TextYankPost", {
