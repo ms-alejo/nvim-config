@@ -43,6 +43,7 @@ vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+vim.keymap.set("n", "vv", "v0o$", { noremap = true })
 
 -- move visually select lines up or down
 vim.keymap.set("n", "K", ":m .-2<CR>==", { noremap = true })
