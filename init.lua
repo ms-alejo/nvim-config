@@ -4,6 +4,7 @@ vim.cmd "set softtabstop=2"
 vim.cmd "set shiftwidth=2"
 
 require "config.lazy"
+vim.cmd.colorscheme "tokyonight-night"
 
 -- Options
 vim.opt.number = true
@@ -75,5 +76,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
     callback = function()
         vim.highlight.on_yank()
+    end,
+})
+
+vim.api.nvim_create_augroup("nobg", { clear = true })
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+    desc = "Make all backgrounds transparent",
+    group = "nobg",
+    pattern = "*",
+    callback = function()
+        vim.api.nvim_set_hl(0, "Normal", { guibg = "NONE", ctermbg = "NONE" })
+        vim.api.nvim_set_hl(0, "NeoTreeNormal", { guibg = "NONE", ctermbg = "NONE" })
+        vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { guibg = "NONE", ctermbg = "NONE" })
+        vim.api.nvim_set_hl(0, "NormalNC", { guibg = "NONE", ctermbg = "NONE" })
+        -- etc...
     end,
 })
