@@ -4,6 +4,7 @@ vim.cmd "set softtabstop=2"
 vim.cmd "set shiftwidth=2"
 
 require "config.lazy"
+require "local-plugins.floating-terminal"
 vim.cmd.colorscheme "tokyonight-night"
 
 -- Options
