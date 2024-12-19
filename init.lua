@@ -14,7 +14,7 @@ vim.opt.mouse = "a"
 vim.opt.showmode = false
 
 vim.schedule(function()
-    vim.opt.clipboard = "unnamedplus"
+  vim.opt.clipboard = "unnamedplus"
 end)
 
 vim.opt.breakindent = true
@@ -65,31 +65,31 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- neovim terminal binds
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<leader>st", function()
-    vim.cmd.vnew()
-    vim.cmd.term()
-    vim.cmd.wincmd "J"
-    vim.api.nvim_win_set_height(0, 10)
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.cmd.wincmd "J"
+  vim.api.nvim_win_set_height(0, 10)
 end)
 
 -- AutoCommands
 vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight when yanking (copying) text",
-    group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
-    callback = function()
-        vim.highlight.on_yank()
-    end,
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
 
 vim.api.nvim_create_augroup("nobg", { clear = true })
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-    desc = "Make all backgrounds transparent",
-    group = "nobg",
-    pattern = "*",
-    callback = function()
-        vim.api.nvim_set_hl(0, "Normal", { guibg = "NONE", ctermbg = "NONE" })
-        vim.api.nvim_set_hl(0, "NeoTreeNormal", { guibg = "NONE", ctermbg = "NONE" })
-        vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { guibg = "NONE", ctermbg = "NONE" })
-        vim.api.nvim_set_hl(0, "NormalNC", { guibg = "NONE", ctermbg = "NONE" })
-        -- etc...
-    end,
+  desc = "Make all backgrounds transparent",
+  group = "nobg",
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "Normal", { guibg = "NONE", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "NeoTreeNormal", { guibg = "NONE", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { guibg = "NONE", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "NormalNC", { guibg = "NONE", ctermbg = "NONE" })
+    -- etc...
+  end,
 })
