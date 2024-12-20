@@ -35,8 +35,8 @@ vim.opt.shell = "pwsh"
 vim.opt.shellcmdflag = "-NoLogo"
 vim.opt.termguicolors = true
 
--- set conceal level to 1 for obsidian.nvim
-vim.opt.conceallevel = 1
+-- set conceal level to 2 for obsidian.nvim
+vim.opt.conceallevel = 2
 
 -- keymaps
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
@@ -77,19 +77,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
   callback = function()
     vim.highlight.on_yank()
-  end,
-})
-
-vim.api.nvim_create_augroup("nobg", { clear = true })
-vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-  desc = "Make all backgrounds transparent",
-  group = "nobg",
-  pattern = "*",
-  callback = function()
-    vim.api.nvim_set_hl(0, "Normal", { guibg = "NONE", ctermbg = "NONE" })
-    vim.api.nvim_set_hl(0, "NeoTreeNormal", { guibg = "NONE", ctermbg = "NONE" })
-    vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { guibg = "NONE", ctermbg = "NONE" })
-    vim.api.nvim_set_hl(0, "NormalNC", { guibg = "NONE", ctermbg = "NONE" })
-    -- etc...
   end,
 })
