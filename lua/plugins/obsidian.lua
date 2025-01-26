@@ -31,6 +31,12 @@ return {
 
     disable_frontmatter = true,
 
+    -- Completion of wiki links, local markdown links, and tags using nvim_cmp
+    completion = {
+      nvim_cmp = true,
+      min_chars = 2,
+    },
+
     -- see below for full list of options 👇
     picker = {
       name = "telescope.nvim",
