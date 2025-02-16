@@ -32,4 +32,18 @@ require("lazy").setup {
   install = { colorscheme = { "tokyonight-night" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        -- "mactchit",
+        -- "matchparen",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
 }
