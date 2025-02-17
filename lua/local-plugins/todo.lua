@@ -7,8 +7,8 @@ local state = {
 
 local function create_floating_window(opts)
   opts = opts or {}
-  local width = opts.width or math.floor(vim.o.columns * 0.8)
-  local height = opts.height or math.floor(vim.o.lines * 0.8)
+  local width = opts.width or math.floor(vim.o.columns * 0.6)
+  local height = opts.height or math.floor(vim.o.lines * 0.6)
 
   -- calc the position to center the window
   local col = math.floor((vim.o.columns - width) / 2)
@@ -21,7 +21,7 @@ local function create_floating_window(opts)
     state.floating.buf = buf
   end
 
-  -- define window configurationwidth
+  -- define window configuration
   local window_config = {
     relative = "editor",
     width = width,
