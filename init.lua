@@ -5,6 +5,7 @@ vim.cmd "set shiftwidth=2"
 
 require "config.lazy"
 require "local-plugins.floating-terminal"
+require "local-plugins.todo"
 vim.cmd.colorscheme "tokyonight-night"
 
 -- Options
@@ -47,6 +48,8 @@ vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 vim.keymap.set("n", "vv", "v0o$", { noremap = true })
+
+-- half page movement + centering
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-f>", "<C-f>zz")
