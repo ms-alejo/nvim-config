@@ -70,7 +70,7 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- vertical guide line
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 vim.cmd "hi ColorColumn ctermbg=0 guibg=#3c4048"
 
 -- neovim terminal binds
@@ -88,5 +88,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
   callback = function()
     vim.highlight.on_yank()
+  end,
+})
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  desc = "Start terminal in insert mode",
+  group = vim.api.nvim_create_augroup("AutoInsertTerminal", { clear = true }),
+  callback = function()
+    vim.cmd "startinsert"
+    vim.cmd "setlocal winfixheight"
   end,
 })
