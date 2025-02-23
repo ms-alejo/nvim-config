@@ -4,10 +4,11 @@ return {
     build = ":Cord update",
     opts = {
       idle = {
-        enabled = true,
+        enabled = false,
       },
       display = {
         theme = "pastel",
+        show_repository = false,
       },
     },
   },

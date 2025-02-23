@@ -2,6 +2,7 @@ vim.cmd "set expandtab"
 vim.cmd "set tabstop=2"
 vim.cmd "set softtabstop=2"
 vim.cmd "set shiftwidth=2"
+vim.cmd "set cmdheight=0"
 
 require "config.lazy"
 require "local-plugins.floating-terminal"
@@ -56,12 +57,12 @@ vim.keymap.set("n", "<C-f>", "<C-f>zz")
 vim.keymap.set("n", "<C-b>", "<C-b>zz")
 
 -- move visually select lines up or down
-vim.keymap.set("n", "K", ":m .-2<CR>==", { noremap = true })
-vim.keymap.set("n", "J", ":m .+1<CR>==", { noremap = true })
-vim.keymap.set("v", "K", ":m <-2<CR>gv=gv", { noremap = true })
-vim.keymap.set("v", "J", ":m >+1<CR>gv=gv", { noremap = true })
-vim.keymap.set("x", "K", ":m-2<CR>gv=gv", { noremap = true })
-vim.keymap.set("x", "J", ":m'>+<CR>gv=gv", { noremap = true })
+vim.keymap.set("n", "K", ":m .-2<CR>==", { noremap = true, silent = true })
+vim.keymap.set("n", "J", ":m .+1<CR>==", { noremap = true, silent = true })
+vim.keymap.set("v", "K", ":m <-2<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set("v", "J", ":m >+1<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set("x", "K", ":m-2<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set("x", "J", ":m'>+<CR>gv=gv", { noremap = true, silent = true })
 
 -- window navigation keymaps
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
@@ -70,7 +71,7 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- vertical guide line
-vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = "80"
 vim.cmd "hi ColorColumn ctermbg=0 guibg=#3c4048"
 
 -- neovim terminal binds
@@ -97,5 +98,14 @@ vim.api.nvim_create_autocmd("TermOpen", {
   callback = function()
     vim.cmd "startinsert"
     vim.cmd "setlocal winfixheight"
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "Disable concealing for certain file formats",
+  group = vim.api.nvim_create_augroup("DisableConceal", { clear = true }),
+  pattern = { "json", "jsonc" },
+  callback = function()
+    vim.opt.conceallevel = 0
   end,
 })
