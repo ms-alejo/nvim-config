@@ -1,5 +1,5 @@
+-- lazy.nvim
 return {
-  -- lazy.nvim
   "folke/noice.nvim",
   event = "VeryLazy",
   opts = {
@@ -37,6 +37,13 @@ return {
         {
           view = "notify",
           filter = { event = "msg_showmode" },
+        },
+        {
+          filter = {
+            event = "notify",
+            find = "No information available",
+          },
+          opts = { skip = true },
         },
       },
     }
