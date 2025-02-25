@@ -90,7 +90,7 @@ local color_idx = 1
 local function toggle_colorscheme()
   color_idx = color_idx % #colorscheme + 1 -- cycle between 1 and 2
   vim.cmd("colorscheme " .. colorscheme[color_idx])
-  print("colorscheme switched to: " .. colorscheme[color_idx])
+  print("Colorscheme switched to: " .. colorscheme[color_idx])
 end
 vim.keymap.set("n", "<leader>sc", toggle_colorscheme, { noremap = true, silent = true })
 

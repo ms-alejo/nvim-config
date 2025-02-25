@@ -2,6 +2,15 @@
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
+  dependencies = {
+    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    "MunifTanjim/nui.nvim",
+    -- OPTIONAL:
+    --   `nvim-notify` is only needed, if you want to use the notification view.
+    --   If not available, we use `mini` as the fallback
+    "rcarriga/nvim-notify",
+    "hrsh7th/nvim-cmp",
+  },
   opts = {
     -- add any options here
     lsp = {
@@ -18,17 +27,8 @@ return {
       command_palette = true, -- position the cmdline and popupmenu together
       long_message_to_split = true, -- long messages will be sent to a split
       inc_rename = false, -- enables an input dialog for inc-rename.nvim
-      lsp_doc_border = false, -- add a border to hover docs and signature help
+      lsp_doc_border = true, -- add a border to hover docs and signature help
     },
-  },
-  dependencies = {
-    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    "MunifTanjim/nui.nvim",
-    -- OPTIONAL:
-    --   `nvim-notify` is only needed, if you want to use the notification view.
-    --   If not available, we use `mini` as the fallback
-    "rcarriga/nvim-notify",
-    "hrsh7th/nvim-cmp",
   },
   config = function()
     local noice = require "noice"
@@ -44,6 +44,17 @@ return {
             find = "No information available",
           },
           opts = { skip = true },
+        },
+        {
+          filter = {
+            event = "msg_show",
+            any = {
+              { find = "%d+L, %d+B" },
+              { find = "; after #%d+" },
+              { find = "; before #%d+" },
+            },
+          },
+          view = "mini",
         },
       },
     }
