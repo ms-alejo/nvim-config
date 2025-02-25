@@ -120,3 +120,24 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.conceallevel = 0
   end,
 })
+
+local numberToggle = vim.api.nvim_create_augroup("numberToggle", {})
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter", "CmdLineLeave" }, {
+  desc = "Show relative only on normal",
+  group = numberToggle,
+  callback = function()
+    if vim.o.nu and vim.api.nvim_get_mode() ~= "i" then
+      vim.opt.relativenumber = true
+    end
+  end,
+})
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave", "CmdLineEnter" }, {
+  desc = "Show relative only on normal",
+  group = numberToggle,
+  callback = function()
+    if vim.o.nu then
+      vim.opt.relativenumber = false
+      vim.cmd "redraw"
+    end
+  end,
+})
