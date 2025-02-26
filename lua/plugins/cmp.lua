@@ -60,24 +60,6 @@ return {
           -- Select the [p]revious item
           ["<C-p>"] = cmp.mapping.select_prev_item(),
 
-          -- Select the next parameter completion
-          ["<C-l>l"] = cmp.mapping(function(fallback)
-            if luasnip.locally_jumpable(1) then
-              luasnip.jump(1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-
-          -- Select previous parameter completion
-          ["<C-h>h"] = cmp.mapping(function(fallback)
-            if luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-
           -- Scroll the documentation window [b]ack / [f]orward
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
