@@ -66,3 +66,10 @@ end
 -- keymaps
 vim.api.nvim_create_user_command("FloatMarkdown", toggle_markdown_buffer, {})
 vim.keymap.set("n", "<leader>td", toggle_markdown_buffer, { desc = "Markdown [T]o[D]o List" })
+
+-- autocommand to auto open when opening neovim
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.defer_fn(toggle_markdown_buffer, 100)
+  end,
+})
