@@ -7,8 +7,8 @@ local state = {
 
 local function create_floating_window(opts)
   opts = opts or {}
-  local width = opts.width or math.floor(vim.o.columns * 0.6)
-  local height = opts.height or math.floor(vim.o.lines * 0.6)
+  local width = opts.width or math.floor(vim.o.columns * 0.5)
+  local height = opts.height or math.floor(vim.o.lines * 0.8)
 
   -- calc the position to center the window
   local col = math.floor((vim.o.columns - width) / 2)
@@ -68,8 +68,8 @@ vim.api.nvim_create_user_command("FloatMarkdown", toggle_markdown_buffer, {})
 vim.keymap.set("n", "<leader>td", toggle_markdown_buffer, { desc = "Markdown [T]o[D]o List" })
 
 -- autocommand to auto open when opening neovim
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    vim.defer_fn(toggle_markdown_buffer, 100)
-  end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   callback = function()
+--     vim.defer_fn(toggle_markdown_buffer, 100)
+--   end,
+-- })
