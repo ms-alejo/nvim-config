@@ -49,7 +49,8 @@ vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 vim.keymap.set("n", "vv", "v0o$", { noremap = true })
-vim.keymap.set("n", "<leader>k", "<cmd>lua vim.lsp.buf.hover()<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>k", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>l", "<cmd> Lazy<CR>", { noremap = true, silent = true })
 
 -- half page movement + centering
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
