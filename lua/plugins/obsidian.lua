@@ -31,6 +31,11 @@ return {
 
     disable_frontmatter = true,
 
+    -- templates
+    templates = {
+      folder = "templates",
+    },
+
     -- Completion of wiki links, local markdown links, and tags using nvim_cmp
     completion = {
       nvim_cmp = true,
