@@ -96,7 +96,7 @@ end)
 local colorscheme = { "tokyonight-night", "base16-black-metal-gorgoroth" }
 local color_idx = 1
 local function toggle_colorscheme()
-  color_idx = color_idx % #colorscheme + 1 -- cycle between 1 and 2
+  color_idx = color_idx % #colorscheme + 1 -- cycle between themes
   vim.cmd("colorscheme " .. colorscheme[color_idx])
   print("Colorscheme switched to: " .. colorscheme[color_idx])
 end
