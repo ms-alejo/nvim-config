@@ -2,13 +2,17 @@ return {
   {
     "vyfor/cord.nvim",
     build = ":Cord update",
+    enabled = false,
     opts = {
       idle = {
         enabled = false,
       },
       display = {
-        theme = "pastel",
+        theme = "catpuccin",
         show_repository = false,
+      },
+      text = {
+        workspace = "",
       },
     },
   },

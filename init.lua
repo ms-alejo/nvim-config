@@ -50,8 +50,8 @@ vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 vim.keymap.set("n", "vv", "v0o$", { noremap = true })
 vim.keymap.set("n", "<leader>k", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>l", "<cmd> Lazy<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>ot", "<cmd> ObsidianTemplate<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { noremap = true, silent = true })
 
 -- half page movement + centering
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -88,8 +88,8 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 vim.keymap.set("n", "<leader>st", function()
   vim.cmd.vnew()
   vim.cmd.term()
-  vim.cmd.wincmd "J"
-  vim.api.nvim_win_set_height(0, 10)
+  vim.cmd.wincmd "L" -- terminal on the right
+  vim.api.nvim_win_set_width(0, 80)
 end)
 
 -- toggle colorscheme
