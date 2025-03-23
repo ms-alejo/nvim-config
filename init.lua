@@ -7,10 +7,11 @@ vim.cmd "set cmdheight=0"
 require "config.lazy"
 require "local-plugins.floating-terminal"
 require "local-plugins.todo"
+vim.cmd.colorscheme "default"
 -- vim.cmd.colorscheme "tokyonight-night"
-vim.cmd.colorscheme "duckbones"
 
 -- Options
+vim.opt.background = "dark"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
