@@ -14,15 +14,15 @@ return {
   {
     "RRethy/base16-nvim",
   },
-  {
-    "scottmckendry/cyberdream.nvim",
-    lazy = false,
-    -- priority = 1000,
-    opts = {
-      transparent = true,
-      italic_comments = true,
-    },
-  },
+  -- {
+  --   "scottmckendry/cyberdream.nvim",
+  --   lazy = false,
+  --   -- priority = 1000,
+  --   opts = {
+  --     transparent = true,
+  --     italic_comments = true,
+  --   },
+  -- },
   {
     "alexxGmZ/e-ink.nvim",
     -- priority = 1000,
